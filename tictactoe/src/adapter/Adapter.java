@@ -1,15 +1,20 @@
 package adapter;
+
+
 import controller.*;
 import view.*;
 import java.awt.event.*;
 import java.util.*;
 
 public class Adapter implements ActionListener {
-   public Adapter(Controller c, View v) {
+	private Controller c;
+	private View v;
+	
+    public Adapter(Controller c, View v) {
         this.c = c;
         this.v = v;
     }
-    public void action_performed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
     		if(v.isReset(e))
     			c.set_request();
     		else {
