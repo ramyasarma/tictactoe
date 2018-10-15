@@ -1,5 +1,5 @@
 package model;
-
+/* This stores the current state of the game. */
 import view.*;
 public class Model {
 	private View v;
@@ -7,18 +7,20 @@ public class Model {
 	private int count_moves;
 	private char[][] grid;
 	private String message;
+	// Constructor
 	public Model() {
 		this.grid = new char[3][3];
 		this.count_moves = 9;
 		this.player_id = 1;
 	}
+	// Reference to view class
 	public void referenceView(View v) {
 		this.v = v;
 	}
 	public int get_player_id() {
 		return player_id;
 	}
-
+	// Setters and getters
 	public void set_player_id(int player_id) {
 		this.player_id = player_id;
 	}
@@ -107,6 +109,7 @@ public class Model {
 		
 		return false;
 	}
+	// Function to revert game to starting point
 	public void reset_model() {
 		count_moves = 9;
 		set_player_id(1);
