@@ -30,7 +30,7 @@ public class View {
 		}
 	    reset.addActionListener(adapter);
     }
-    public void initialize () {
+    public void initialize() {
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    gui.setSize(new Dimension(500, 350));
 	    gui.setResizable(true);
@@ -60,6 +60,7 @@ public class View {
 	    gui.setVisible(true);
 
     }
+
     public boolean isReset(ActionEvent e) {
     		if(e.getSource() == reset)
     			return true;
@@ -77,12 +78,16 @@ public class View {
     		}
     		return position;
     }
-    public void update(int row, int column, char symbol, String message) {
-    		blocks[row][column].setText(Character.toString(symbol));
-    		blocks[row][column].setEnabled(false);
-    		playerturn.setText(message);
-    	
+    public void resetGame() {
+    	for(int row = 0;row<3;row++) {
+            for(int column = 0;column<3;column++) {
+                blocks[row][column].setText("");
+                blocks[row][column].setEnabled(true);
+            }
+        }
+        playerturn.setText("Player 1 to play 'X'");
     }
+ 
     public void isWinner(int row, int column, char symbol, String message) {
 		blocks[row][column].setText(Character.toString(symbol));
 		blocks[row][column].setEnabled(false);
@@ -94,14 +99,12 @@ public class View {
 		playerturn.setText(message);
 
     }
-    public void resetGame() {
-    	for(int row = 0;row<3;row++) {
-            for(int column = 0;column<3;column++) {
-                blocks[row][column].setText("");
-                blocks[row][column].setEnabled(true);
-            }
-        }
-        playerturn.setText("Player 1 to play 'X'");
+ 
+    public void update(int row, int column, char symbol, String message) {
+		blocks[row][column].setText(Character.toString(symbol));
+		blocks[row][column].setEnabled(false);
+		playerturn.setText(message);
+	
     }
     public String get_button_text(int i, int j) {
     		return blocks[i][j].getText();
