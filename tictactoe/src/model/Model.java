@@ -107,7 +107,7 @@ public class Model {
 		
 		return false;
 	}
-	public void resetModel() {
+	public void reset_model() {
 		count_moves = 9;
 		set_player_id(1);
 		set_message("");
